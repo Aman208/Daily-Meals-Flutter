@@ -18,7 +18,7 @@ class CategoryList extends StatelessWidget {
                 maxCrossAxisExtent: 200,
               ),
               itemBuilder: ( ctx , index){
-                return CategoryItem(DUMMY_CATEGORIES[index].title ,DUMMY_CATEGORIES[index].color );
+                return CategoryItem(DUMMY_CATEGORIES[index].id ,DUMMY_CATEGORIES[index].title ,DUMMY_CATEGORIES[index].color );
               },
               itemCount: DUMMY_CATEGORIES.length,)),
     );

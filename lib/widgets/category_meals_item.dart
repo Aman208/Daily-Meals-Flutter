@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/models/meal.dart';
 
 class CategoryMealsItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -9,11 +10,12 @@ class CategoryMealsItem extends StatelessWidget {
   final Complexity complexity;
 
   CategoryMealsItem(
-      {this.title,
-      this.imageUrl,
-      this.duration,
-      this.affordability,
-      this.complexity});
+      {@required this.id,
+      @required this.title,
+      @required this.imageUrl,
+      @required this.duration,
+      @required this.affordability,
+      @required this.complexity});
 
   String get affordabilityText {
     switch (affordability) {
@@ -47,10 +49,14 @@ class CategoryMealsItem extends StatelessWidget {
     }
   }
 
+  void _forwardToMealDetail(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed('/meal-detail', arguments: id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: () {},
+        onTap: () {_forwardToMealDetail(context);},
         highlightColor: Colors.deepOrange,
         child: Container(
             child: Card(
